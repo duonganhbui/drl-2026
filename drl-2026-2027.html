@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tính điểm rèn luyện 2026–2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<style>
+:root{--bg:#F8FAFC;--card:#FFFFFF;--text:#0F172A;--muted:#64748B;--line:#E2E8F0;--ok:#BBF7D0;--okt:#14532D;--pri:#B71C1C;--pri2:#D32F2F;--soft:#FEF2F2;color-scheme:light;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B1220;--card:#131C2E;--text:#E5E7EB;--muted:#94A3B8;--line:#24304A;--ok:#14532D;--okt:#BBF7D0;--soft:#2A1416;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0B1220;--card:#131C2E;--text:#E5E7EB;--muted:#94A3B8;--line:#24304A;--ok:#14532D;--okt:#BBF7D0;--soft:#2A1416;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',system-ui,sans-serif;margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:#7F1D1D;z-index:40}
+.card{background:var(--card);border:1px solid var(--line);border-radius:1rem;box-shadow:0 1px 3px rgba(15,23,42,.06)}
+header.hd{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:linear-gradient(135deg,#7F1D1D,#B71C1C 55%,#E53935);color:#fff;box-shadow:0 6px 20px rgba(127,29,29,.35)}
+#hint{color:rgba(255,255,255,.92)}#tot{color:#fff}header .bar{background:rgba(255,255,255,.25)}
+.bar{height:10px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar>i{display:block;height:100%;border-radius:99px;transition:width .5s,background .5s}
+.chip{border:1px solid rgba(255,255,255,.35);border-radius:.75rem;padding:.25rem .6rem;font-size:.72rem;white-space:nowrap;background:rgba(255,255,255,.14);color:#fff}
+.chip.full{background:#22C55E;border-color:#22C55E;font-weight:700}
+.pill{border:2px solid var(--a);color:var(--a);background:var(--card);border-radius:99px;padding:.35rem .9rem;font-size:.8rem;font-weight:700;white-space:nowrap;cursor:pointer;transition:all .2s}
+.pill:hover{background:var(--a);color:#fff;transform:translateY(-1px)}
+.btn{border-radius:.75rem;padding:.5rem .9rem;font-size:.82rem;font-weight:600;border:1px solid var(--line);background:var(--card);cursor:pointer}
+.btn.p{background:var(--pri);color:#fff;border-color:var(--pri)}.btn.amber{background:#F59E0B;color:#1F2937;border-color:#F59E0B}.btn.blue{background:#2563EB;color:#fff;border-color:#2563EB}.btn.red{background:transparent;color:var(--pri2);border:2px solid var(--pri2)}.btn:hover{filter:brightness(.96)}
+.badge{border-radius:99px;padding:.15rem .6rem;font-size:.75rem;font-weight:700;background:color-mix(in srgb,var(--a,#B71C1C) 14%,transparent);color:var(--a,#B71C1C);white-space:nowrap;transition:all .3s}
+.badge.ok{background:var(--ok);color:var(--okt)}
+.row{display:flex;gap:.7rem;align-items:flex-start;padding:.65rem .75rem;border-radius:.75rem;cursor:pointer;user-select:none;transition:background .2s,opacity .3s;-webkit-tap-highlight-color:transparent}
+.row:hover{background:var(--bg)}.row.on{background:var(--ok);box-shadow:inset 4px 0 0 #16A34A}.row.on .bx{box-shadow:0 0 0 3px rgba(22,163,74,.25)}
+.bx{flex:none;width:22px;height:22px;border-radius:7px;border:2px solid var(--muted);display:grid;place-items:center;color:#fff;font-size:13px;transition:all .15s;margin-top:1px}
+.row.on .bx{background:#16A34A;border-color:#16A34A}.row:not(.on) .bx::after{content:""}
+.row.on .bx::after{content:"✓"}
+.capped .row:not(.on){opacity:.4}
+.neg.row.on{background:var(--soft)}.neg.row.on .bx{background:var(--pri);border-color:var(--pri)}
+.mc{font-size:.62rem;font-weight:700;border:1px solid var(--line);border-radius:6px;padding:0 .3rem;color:var(--muted);margin-left:.4rem}
+.body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s}
+.open>.body{grid-template-rows:1fr}.body>div{overflow:hidden}
+.chev{transition:transform .3s}.open .chev{transform:rotate(180deg)}
+.ov{position:fixed;inset:0;background:rgba(15,23,42,.55);display:none;align-items:center;justify-content:center;padding:1rem;z-index:60}
+.ov.show{display:flex}
+.noscroll::-webkit-scrollbar{display:none}
+</style>
+</head>
+<body>
+<header class="hd">
+ <div class="max-w-4xl mx-auto px-4 py-3">
+  <div class="flex items-center gap-3 flex-wrap">
+   <div class="flex items-baseline gap-1"><span id="tot" class="text-5xl font-extrabold">0</span><span class="font-semibold text-white/80">/ 100</span></div>
+   <span id="rank" class="badge" style="font-size:.85rem"></span>
+   <div id="hint" class="text-xs sm:text-sm font-medium flex-1 min-w-[180px]"></div>
+  </div>
+  <div class="bar mt-2"><i id="pg"></i></div>
+  <div id="mini" class="flex gap-2 mt-2 overflow-x-auto noscroll"></div>
+ </div>
+</header>
+
+<main class="max-w-4xl mx-auto px-4 py-4 space-y-4">
+ <div class="flex items-center gap-2 overflow-x-auto noscroll" id="pills"></div>
+ <input id="q" type="search" placeholder="Tìm tiêu chí… (ví dụ: hiến máu, TOEIC, CLB)" class="w-full rounded-xl px-4 py-3 text-sm outline-none" style="background:var(--card);border:1px solid var(--line);color:var(--text)">
+ <div class="flex gap-2 flex-wrap">
+  <button class="btn amber" id="bQuick">⚡ Tích nhanh mặc định</button>
+  <button class="btn blue" id="bMC">📋 Việc cần chuẩn bị Minh chứng (MC)</button>
+  <button class="btn red" id="bReset">🔄 Làm mới (Reset)</button>
+ </div>
+ <div id="list" class="space-y-4"></div>
+ <p id="empty" class="hidden text-center text-sm py-8" style="color:var(--muted)">Không tìm thấy tiêu chí phù hợp.</p>
+ <p class="text-xs text-center pb-8" style="color:var(--muted)">Theo Khung đánh giá kết quả rèn luyện sinh viên năm học 2026–2027. (MC): minh chứng được cấp khi tham gia hoạt động; (*): dựa trên hệ thống quản lý. Kết quả chỉ mang tính tham khảo.</p>
+</main>
+
+<div class="ov" id="ov"><div class="card w-full max-w-lg p-5 max-h-[85vh] flex flex-col"><h3 id="mt" class="font-bold text-lg mb-3"></h3><div id="mb" class="overflow-y-auto text-sm space-y-2 flex-1"></div><div id="mf" class="flex justify-end gap-2 mt-4"></div></div></div>
+
+<script>
+const D=[
+{id:'TC1',t:'Chấp hành pháp luật và nội quy, quy chế của nhà trường',cap:25,b:[
+{id:'1.1',t:'Chấp hành các quy định của pháp luật đối với công dân',cap:15,i:[
+['1.1.1','Hiểu biết và chấp hành pháp luật của Nhà nước, quy định của nhà trường và nơi cư trú',6],
+['1.1.2','Tham gia Sinh hoạt công dân do nhà trường tổ chức',6],
+['1.1.3','Khai báo thông tin liên lạc và nơi cư trú theo yêu cầu của Đại học',4]]},
+{id:'1.2',t:'Chấp hành nội quy, quy chế và các quy định của nhà trường',cap:15,i:[
+['1.2.1','Tham gia Họp lớp thường kỳ do Trường/Khoa tổ chức',6],
+['1.2.2','Nắm vững quy định và quy chế của nhà trường',6],
+['1.2.3','Hoàn thành mục tiêu cam kết học tập và rèn luyện (GPA và ĐRL đạt từ mức Khá trở lên)',6]]}]},
+{id:'TC2',t:'Trách nhiệm, tinh thần và thái độ trong học tập',cap:20,b:[
+{id:'2.1',t:'Trách nhiệm và thái độ tham gia các hoạt động học tập',cap:15,i:[
+['2.1.1','Có kế hoạch học tập và rèn luyện phù hợp được thầy cô ghi nhận',3],
+['2.1.2','Tham gia hoạt động, sự kiện liên quan đến NCKH, học thuật, chuyên môn',3],
+['2.1.3','Tham gia các buổi tư vấn xây dựng kế hoạch, động lực học tập phù hợp',3],
+['2.1.4','Tham gia hoạt động hướng nghiệp, tìm kiếm thông tin việc làm',3],
+['2.1.5','Tham gia khóa đào tạo kỹ năng nghề nghiệp, kỹ năng bổ trợ chuyên môn',6],
+['2.1.6','Chủ động xây dựng, hoàn thiện và cập nhật Portfolio cá nhân theo từng học kỳ',3]]},
+{id:'2.2',t:'Trách nhiệm và tinh thần tham gia các kỳ thi, cuộc thi',cap:12,i:[
+['2.2.1','Tham gia công bố khoa học tại Hội nghị hoặc tạp chí khoa học chuyên ngành',6],
+['2.2.2','Tham gia các cuộc thi Olympic cấp Đại học, cấp quốc gia, quốc tế',6],
+['2.2.3','Thành viên CLB học thuật, Lab nghiên cứu, nhóm nghiên cứu, nhóm khởi nghiệp',6]]},
+{id:'2.3',t:'Tinh thần vượt khó, phấn đấu vươn lên trong học tập',cap:8,i:[
+['2.3.1','Có nỗ lực trong học tập (GPA kỳ đánh giá cao hơn kỳ trước, giảm mức cảnh báo học tập, hoặc duy trì GPA ≥ 3.6)',6,0],
+['2.3.2','Tham gia các hoạt động tăng cường kỹ năng sử dụng ngoại ngữ được nhà trường ghi nhận',6],
+['2.3.3','Có chứng chỉ ngoại ngữ quốc tế hoặc tương đương đạt mức TOEIC 600 điểm trở lên (còn hạn)',6],
+['2.3.4','Được doanh nghiệp tuyển dụng là thực tập sinh và có thời gian thực tập hơn 30 ngày',6]]}]},
+{id:'TC3',t:'Trách nhiệm tham gia hoạt động chính trị - xã hội, văn hoá, văn nghệ, thể thao, phòng chống tội phạm và các tệ nạn xã hội',cap:20,b:[
+{id:'3.1',t:'Trách nhiệm và hiệu quả tham gia các hoạt động rèn luyện về chính trị, xã hội, văn hóa, văn nghệ, thể thao',cap:12,i:[
+['3.1.1','Tham gia sự kiện chính trị - xã hội (các Đại hội, Hội nghị, cuộc họp của tổ chức Đảng, Đoàn - Hội…)',3],
+['3.1.2','Tham gia cổ vũ các hoạt động phong trào văn hóa, thể thao',3],
+['3.1.3','Tham gia các hoạt động thể dục nâng cao sức khỏe được tổ chức bởi các đơn vị hợp pháp',4],
+['3.1.4','Tham gia các cuộc thi văn hóa, văn nghệ do các tổ chức, đơn vị hợp pháp tổ chức',6],
+['3.1.5','Tham gia các giải thể thao do các tổ chức, đơn vị hợp pháp tổ chức',6],
+['3.1.6','Tham gia các khóa đào tạo kỹ năng mềm do các đơn vị được Nhà trường công nhận tổ chức',6],
+['3.1.7','Thành viên CLB/Tổ/Đội/Nhóm SV hợp pháp, hoạt động về văn nghệ, thể thao, tình nguyện, sở thích',6]]},
+{id:'3.2',t:'Tham gia các hoạt động công ích, tình nguyện, công tác xã hội',cap:12,i:[
+['3.2.1','Tham gia hoạt động khảo sát thông tin do nhà trường thực hiện',3],
+['3.2.2','Tham gia các hoạt động tình nguyện (hỗ trợ địa phương, bảo đảm an toàn giao thông khu vực cổng trường…)',3],
+['3.2.3','Tham gia phong trào “cốc trà đá vì cộng đồng”, “tuổi trẻ Bách khoa Nhân ái”',3],
+['3.2.4','Tham gia hiến máu nhân đạo do Đại học và các tổ chức hợp pháp phát động, tổ chức',6],
+['3.2.5','Tham gia các hoạt động phổ biến, tìm hiểu bản sắc văn hóa dân tộc, văn hóa địa phương, văn hóa nhà trường',3],
+['3.2.6','Tham gia các đội hình hoặc chiến dịch tình nguyện trong và ngoài Nhà trường (Mùa hè xanh, Tiếp sức mùa thi…)',6]]},
+{id:'3.3',t:'Tham gia tuyên truyền, phòng chống tội phạm và tệ nạn xã hội',cap:6,i:[
+['3.3.1','Tham gia bảo vệ cảnh quan, môi trường, nếp sống văn minh nơi công cộng',4],
+['3.3.2','Tham gia các hoạt động đảm bảo an ninh, trật tự và an toàn trường học',4],
+['3.3.3','Tham gia các diễn đàn sinh viên, các buổi tọa đàm xây dựng quy định, quy chế và pháp luật',4]]}]},
+{id:'TC4',t:'Ý thức công dân trong quan hệ cộng đồng',cap:15,b:[
+{id:'4.1',t:'Tham gia tuyên truyền các chủ trương của Đảng, chính sách, pháp luật của Nhà nước trong cộng đồng',cap:12,i:[
+['4.1.1','Có hành động tích cực trên không gian mạng, phù hợp với chủ trương của Nhà trường và đường lối của Đảng, Nhà nước',3],
+['4.1.2','Tham gia tuyên truyền đường lối của Đảng, pháp luật của Nhà nước, quy định nơi cư trú hoặc quy định, quy chế nhà trường',3],
+['4.1.3','Tham gia các hoạt động phổ biến chủ trương của Đảng, chính sách, pháp luật của Nhà nước',4],
+['4.1.4','Tham gia các cuộc thi tìm hiểu lịch sử, văn hóa, truyền thống dân tộc',4],
+['4.1.5','Góp phần xây dựng tốt hình ảnh sinh viên Bách khoa với các cơ quan, tổ chức hay doanh nghiệp',4]]},
+{id:'4.2',t:'Trách nhiệm tham gia các hoạt động xã hội được ghi nhận, biểu dương khen thưởng',cap:12,i:[
+['4.2.1','Được giấy khen, bằng khen của tổ chức Đoàn, Hội, nhà trường hoặc chính quyền địa phương',6],
+['4.2.2','Đạt loại Khá trở lên khi tham gia học “Lớp bồi dưỡng nhận thức về Đảng”',6],
+['4.2.3','Được kết nạp Đảng hoặc được chuyển Đảng chính thức',6],
+['4.2.4','Được cơ quan, công ty hoặc tổ chức hợp pháp nơi thực tập đánh giá hoàn thành tốt nhiệm vụ trở lên',6]]}]},
+{id:'TC5',t:'Trách nhiệm và kết quả tham gia công tác cán bộ lớp, đoàn thể, các tổ chức khác hoặc có thành tích xuất sắc trong học tập, rèn luyện',cap:20,b:[
+{id:'5.1',t:'Tham gia công tác cán bộ tại Lớp, tổ chức Đoàn - Hội, Tổ/Đội/CLB hợp pháp',cap:6,i:[
+['5.1.1','Cán bộ Lớp, Chi bộ, Đoàn - Hội, Tổ/Đội/CLB, trưởng nhóm SV NCKH hoàn thành xuất sắc nhiệm vụ',6],
+['5.1.2','Cán bộ Lớp, Chi bộ, Đoàn - Hội, Tổ/Đội/CLB, trưởng nhóm SV NCKH hoàn thành tốt nhiệm vụ',4],
+['5.1.3','Cán bộ Lớp, Chi bộ, Đoàn - Hội, Tổ/Đội/CLB, trưởng nhóm SV NCKH hoàn thành nhiệm vụ',3]]},
+{id:'5.2',t:'Hỗ trợ và tham gia tích cực vào các hoạt động chung của Đại học/Trường/Khoa/Lớp',cap:10,i:[
+['5.2.1','Thành viên tích cực thuộc các Tổ/Đội/CLB, nhóm SV NCKH tham gia hỗ trợ triển khai hoạt động',6],
+['5.2.2','Tham gia hỗ trợ triển khai hoạt động của Lớp, Khoa, Trường hoặc Đại học và hoàn thành tốt nhiệm vụ',4],
+['5.2.3','Tham gia hỗ trợ triển khai hoạt động của Lớp, Khoa, Trường hoặc Đại học và hoàn thành nhiệm vụ',3]]},
+{id:'5.3',t:'Có các thành tích trong NCKH, cuộc thi KHKT, khởi nghiệp và các hoạt động khác dành cho sinh viên',cap:15,i:[
+['5.3.1','Đạt giải trong các cuộc thi chính thức cấp Quốc gia, cấp Quốc tế',15],
+['5.3.2','Đạt giải trong các cuộc thi chính thức cấp Thành phố',12],
+['5.3.3','Đạt giải trong các cuộc thi chính thức cấp Đại học',10],
+['5.3.4','Được khen thưởng bằng khen, huy chương tương đương cấp Bộ trở lên',10],
+['5.3.5','Đạt thành tích trong NCKH sinh viên, cuộc thi khoa học kỹ thuật, sáng kiến cải tiến kỹ thuật, khởi nghiệp',8],
+['5.3.6','Đạt danh hiệu “Sinh viên 5 tốt” từ cấp Đại học trở lên',8],
+['5.3.7','Có kết quả học tập và rèn luyện kỳ trước đó đạt mức Xuất sắc (GPA ≥ 3.6, ĐRL ≥ 90) trở lên',6,0],
+['5.3.8','Có kết quả học tập và rèn luyện kỳ trước đó đạt mức Giỏi (GPA ≥ 3.2, ĐRL ≥ 80) trở lên',4,0]]}]},
+{id:'TRỪ',neg:1,t:'Điểm trừ: sinh viên bị trừ điểm nếu vi phạm các quy định',cap:-110,b:[
+{id:'6.1',t:'Vi phạm trong học tập',i:[['6.1.1','Vi phạm quy chế thi từ cảnh cáo trở lên',-10,0],['6.1.2','Bị kỷ luật khi thi hộ',-20,0]]},
+{id:'6.2',t:'Vi phạm trong rèn luyện',i:[['6.2.1','Vi phạm Quy tắc ứng xử văn hóa',-10,0],['6.2.2','Vi phạm các quy định của Nhà trường và pháp luật hiện hành, đã bị cơ quan có thẩm quyền lập biên bản',-20,0]]},
+{id:'6.3',t:'Vi phạm pháp luật',i:[['6.3.1','Vi phạm pháp luật thuộc nhóm tội danh hình sự',-50,0]]}]}
+];
+const LV=[[90,'Xuất sắc','#16A34A','#4ADE80'],[80,'Giỏi','#0D9488','#2DD4BF'],[65,'Khá','#2563EB','#93C5FD'],[50,'Trung bình','#D97706','#FCD34D'],[0,'Yếu','#DC2626','#FCA5A5']];
+const COL={TC1:'#B71C1C',TC2:'#2563EB',TC3:'#7C3AED',TC4:'#EA580C',TC5:'#0D9488','TRỪ':'#475569'};
+const QUICK=['1.1.1','1.1.2','1.1.3','1.2.1','1.2.2','3.2.1','4.1.1'];
+const KEY='drl2026_state';
+let S=new Set();
+try{S=new Set(JSON.parse(localStorage.getItem(KEY)||'[]'))}catch(e){}
+const $=id=>document.getElementById(id);
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify([...S]))}catch(e){}};
+const norm=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d').toLowerCase();
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+
+function calc(){
+  const br={},tc={};let sum=0,pen=0;
+  D.forEach(m=>{let s=0;
+    m.b.forEach(b=>{const raw=b.i.reduce((a,x)=>a+(S.has(x[0])?x[2]:0),0);
+      br[b.id]=b.cap?Math.min(b.cap,raw):raw;s+=br[b.id]});
+    tc[m.id]=m.neg?s:Math.min(m.cap,s);
+    if(m.neg)pen=tc[m.id];else sum+=tc[m.id]});
+  return{br,tc,pen,total:Math.min(100,Math.max(0,sum+pen))};
+}
+
+function build(){
+  $('pills').innerHTML=D.map(m=>`<button class="pill" style="--a:${COL[m.id]}" data-j="${m.id}">${m.neg?'Điểm trừ':m.id}</button>`).join('');
+  $('list').innerHTML=D.map((m,k)=>`<section class="card ${k==0?'open':''}" id="c-${m.id}" data-tc="${m.id}" style="--a:${COL[m.id]};border-left:6px solid var(--a)">
+   <button class="w-full flex items-center gap-3 p-4 text-left" data-t="${m.id}">
+    <span class="flex-none w-11 h-11 rounded-xl grid place-items-center text-white text-xs font-extrabold" style="background:var(--a)">${m.neg?'−':m.id}</span>
+    <span class="flex-1 text-sm font-bold leading-snug">${m.t}</span>
+    <span class="badge" id="t-${m.id}"></span><span class="chev text-xs">▼</span></button>
+   <div class="body"><div><div class="px-3 pb-3 space-y-3">${m.b.map(b=>`
+    <div class="rounded-xl p-2 br" id="br-${b.id}" style="border:1px solid var(--line)">
+     <div class="flex items-center gap-2 px-2 py-1"><span class="flex-1 text-[13px] font-semibold" style="color:var(--muted)">${b.id}. ${b.t}</span><span class="badge" id="b-${b.id}"></span></div>
+     ${b.i.map(x=>`<div class="row ${m.neg?'neg':''}" data-c="${x[0]}" data-s="${norm(x[0]+' '+x[1])}"><span class="bx"></span><span class="flex-1 text-sm leading-snug">${x[0]} ${esc(x[1])}${x[3]===0?'<span class="mc">*</span>':'<span class="mc">MC</span>'}</span><span class="text-sm font-bold" style="color:${x[2]<0?'var(--pri)':'inherit'}">${x[2]>0?'+':''}${x[2]}</span></div>`).join('')}
+    </div>`).join('')}</div></div></div></section>`).join('');
+}
+
+function update(){
+  const r=calc();
+  document.querySelectorAll('.row').forEach(e=>e.classList.toggle('on',S.has(e.dataset.c)));
+  const setB=(el,v,cap,neg)=>{const full=!neg&&cap&&v>=cap;el.textContent=neg?v:(full?'✓ ':'')+v+'/'+cap;el.classList.toggle('ok',full)};
+  D.forEach(m=>{
+    setB($('t-'+m.id),r.tc[m.id],m.cap,m.neg);
+    m.b.forEach(b=>{if(!m.neg){setB($('b-'+b.id),r.br[b.id],b.cap);$('br-'+b.id).classList.toggle('capped',r.br[b.id]>=b.cap)}else $('b-'+b.id).textContent=r.br[b.id]});
+  });
+  const t=r.total,lv=LV.find(l=>t>=l[0]);
+  $('tot').textContent=t;$('rank').textContent=lv[1];$('rank').style.cssText=`font-size:.85rem;background:${lv[2]};color:#fff;border:2px solid rgba(255,255,255,.7)`;
+  const pg=$('pg');pg.style.width=t+'%';pg.style.background=lv[3];
+  const nx=[...LV].reverse().find(l=>l[0]>t);
+  $('hint').textContent=nx?`Còn thiếu ${nx[0]-t} điểm nữa để đạt mức ${nx[1]}!`:'Tuyệt vời! Bạn đã đạt mức cao nhất 🎉';
+  $('mini').innerHTML=D.map(m=>{const full=!m.neg&&r.tc[m.id]>=m.cap;return `<span class="chip ${full?'full':''}"><b>${m.neg?'Trừ':m.id}</b> ${full?'✓ ':''}${r.tc[m.id]}${m.neg?'':'/'+m.cap}</span>`}).join('');
+}
+
+function modal(title,body,btns){
+  $('mt').textContent=title;$('mb').innerHTML=body;$('mf').innerHTML='';
+  btns.forEach(([label,cls,fn])=>{const b=document.createElement('button');b.className='btn '+cls;b.textContent=label;b.onclick=()=>{if(fn)fn(b);if(!b.dataset.keep)$('ov').classList.remove('show')};$('mf').appendChild(b)});
+  $('ov').classList.add('show');
+}
+const items=()=>D.flatMap(m=>m.b.flatMap(b=>b.i.map(x=>({c:x[0],t:x[1],mc:x[3]!==0}))));
+
+function filter(){
+  const k=norm($('q').value.trim());let any=false;
+  document.querySelectorAll('.row').forEach(e=>e.style.display=!k||e.dataset.s.includes(k)?'':'none');
+  document.querySelectorAll('.br').forEach(b=>{const v=[...b.querySelectorAll('.row')].some(e=>e.style.display!=='none');b.style.display=v?'':'none'});
+  document.querySelectorAll('section.card').forEach(s=>{const v=[...s.querySelectorAll('.row')].some(e=>e.style.display!=='none');s.style.display=v?'':'none';if(k&&v){s.classList.add('open');any=true}else if(v)any=true});
+  $('empty').classList.toggle('hidden',any);
+}
+
+document.addEventListener('click',e=>{
+  const row=e.target.closest('.row');
+  if(row){const c=row.dataset.c;S.has(c)?S.delete(c):S.add(c);save();update();return}
+  const t=e.target.closest('[data-t]');
+  if(t){$('c-'+t.dataset.t).classList.toggle('open');return}
+  const j=e.target.closest('[data-j]');
+  if(j){const c=$('c-'+j.dataset.j);c.classList.add('open');setTimeout(()=>c.scrollIntoView({behavior:'smooth',block:'start'}),50)}
+  if(e.target===$('ov'))$('ov').classList.remove('show');
+});
+$('q').addEventListener('input',filter);
+$('bQuick').onclick=()=>{QUICK.forEach(c=>S.add(c));save();update()};
+$('bReset').onclick=()=>modal('Làm mới bảng điểm?','<p>Toàn bộ tiêu chí đã tích sẽ bị bỏ chọn và điểm về 0. Thao tác này không thể hoàn tác.</p>',[['Hủy','',null],['Xóa hết','p',()=>{S.clear();save();update()}]]);
+$('bMC').onclick=()=>{
+  const l=items().filter(x=>S.has(x.c)&&x.mc);
+  if(!l.length){modal('Minh chứng cần chuẩn bị','<p style="color:var(--muted)">Bạn chưa tích tiêu chí nào cần minh chứng (MC).</p>',[['Đóng','p',null]]);return}
+  const txt='DANH SÁCH MINH CHỨNG CẦN CHUẨN BỊ (ĐRL 2026–2027)\n'+l.map(x=>`☐ ${x.c} ${x.t}`).join('\n');
+  modal(`Minh chứng cần chuẩn bị (${l.length})`,l.map(x=>`<div class="flex gap-2"><span class="font-bold" style="color:var(--pri)">${x.c}</span><span>${esc(x.t)}</span></div>`).join(''),
+   [['Đóng','',null],['📄 Copy danh sách','p',b=>{b.dataset.keep=1;const ok=()=>b.textContent='✓ Đã copy';
+     const fb=()=>{const a=document.createElement('textarea');a.value=txt;document.body.appendChild(a);a.select();try{document.execCommand('copy');ok()}catch(e){b.textContent='Không copy được'}a.remove()};
+     navigator.clipboard?navigator.clipboard.writeText(txt).then(ok,fb):fb()}]]);
+};
+build();update();
+</script>
+</body>
+</html>
